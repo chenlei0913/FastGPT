@@ -281,7 +281,6 @@ const functionCall = async (props: ActionProps) => {
   });
 
   try {
-    console.log(response);
     const arg = JSON.parse(response?.choices?.[0]?.message?.function_call?.arguments || '');
     const completeMessages: ChatCompletionMessageParam[] = [
       ...filterMessages,
@@ -290,6 +289,8 @@ const functionCall = async (props: ActionProps) => {
         function_call: response.choices?.[0]?.message?.function_call
       }
     ];
+
+    console.log("<=======>",completeMessages);
 
     return {
       arg,
