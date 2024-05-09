@@ -281,6 +281,7 @@ const functionCall = async (props: ActionProps) => {
   });
 
   try {
+    console.log(response);
     const arg = JSON.parse(response?.choices?.[0]?.message?.function_call?.arguments || '');
     const completeMessages: ChatCompletionMessageParam[] = [
       ...filterMessages,
